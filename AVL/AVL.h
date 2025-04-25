@@ -14,8 +14,8 @@ class AVLTree : public BST<Key, Value> {
     };
 
 public:
-    void insert(Key key, Value value) {
-        root = insert(dynamic_cast<AVLNode*>(root), key, value);
+    void insert(Key key, Value value) override {
+        root = this->insert(dynamic_cast<AVLNode*>(root), key, value);
     }
 
 private:
@@ -47,7 +47,6 @@ private:
     AVLNode* leftRotate(AVLNode* x) {
         AVLNode* y = (AVLNode*)x->right;
         AVLNode* T2 = (AVLNode*)y->left;
-
         y->left = x;
         x->right = T2;
 
@@ -74,10 +73,10 @@ private:
 
         int balance = getBalanceFactor(node);
 
-        // LL
+        // RR
         if (balance > 1 && key < node->left->key)
             return rightRotate(node);
-        // RR
+        // LL
         if (balance < -1 && key > node->right->key)
             return leftRotate(node);
         // LR

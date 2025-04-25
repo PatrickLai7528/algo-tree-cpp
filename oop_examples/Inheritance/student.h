@@ -12,7 +12,7 @@ class Student : public Person {
     
     public:
         Student(string name, int age, int studentID)
-            : Person(name, age), studentID(studentID) {}
+            : Person(name, age, "Student"), studentID(studentID) {}
     
         void study() {
             cout << name << " is studying." << endl;

@@ -11,7 +11,7 @@ class Teacher : public Person {
     
     public:
         Teacher(string name, int age, string subject)
-            : Person(name, age), subject(subject) {}
+            : Person(name, age, "Teacher"), subject(subject) {}
     
         void teach() {
             cout << name << " is teaching " << subject << "." << endl;
